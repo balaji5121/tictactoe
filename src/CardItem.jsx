@@ -7,11 +7,12 @@ export default function CardItem(props) {
   return (
     <Card
       style={{
-        height: "25vh",
+        height: "20vh",
+        width: "25vw",
         backgroundColor: isX && "red",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
       onClick={() => {
         fun({ info });

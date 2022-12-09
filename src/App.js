@@ -11,7 +11,7 @@ const Logic = [
   { id: 6, isX: false, isO: false },
   { id: 7, isX: false, isO: false },
   { id: 8, isX: false, isO: false },
-  { id: 9, isX: false, isO: false }
+  { id: 9, isX: false, isO: false },
 ];
 
 const indexes = [
@@ -22,14 +22,14 @@ const indexes = [
   [3, 4, 5],
   [6, 7, 8],
   [0, 4, 8],
-  [2, 4, 6]
+  [2, 4, 6],
 ];
 
 const gameStatusConstants = {
   startGame: "StartGame",
   xHasWon: "xHasWon",
   oHasWon: "oHasWon",
-  gameTied: "gameTied"
+  gameTied: "gameTied",
 };
 
 export default function App() {
@@ -53,16 +53,13 @@ export default function App() {
     }
   };
 
-  const verifyTie = () => {
-    if (count === 10) {
+  useEffect(() => {
+    verifyWinner();
+    console.log(count);
+    if (count > 9) {
       setGameStatus(gameStatusConstants.gameTied);
       setCount(0);
     }
-  };
-
-  useEffect(() => {
-    verifyWinner();
-    verifyTie();
   }, [logicArr]);
 
   const fun = ({ info }) => {
@@ -135,7 +132,7 @@ export default function App() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       <Typography variant="h5">Game Tied</Typography>
@@ -165,7 +162,7 @@ export default function App() {
       style={{
         height: "100vh",
         padding: "30px",
-        backgroundColor: "whitesmoke"
+        backgroundColor: "whitesmoke",
       }}
     >
       <Typography align="center" variant="h4" gutterBottom>
